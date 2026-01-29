@@ -1,89 +1,72 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
+#include <algorithm>
+#include <string>
 using namespace std;
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        int n = nums.size();
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (nums[i] + nums[j] == target) {
-                    return {i, j};
-                }
-            }
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> mp;
+        for (string& str: strs) {
+            string key = str;
+            sort(key.begin(), key.end());
+            mp[key].emplace_back(str);
         }
-        return {};
+        vector<vector<string>> ans;
+        for (auto it = mp.begin(); it != mp.end(); ++it) {
+            ans.emplace_back(it->second);
+        }
+        return ans;
     }
 };
-
-// 打印数组的函数
-void printVector(const vector<int>& vec) {
-    cout << "[";
-    for (int i = 0; i < vec.size(); ++i) {
-        cout << vec[i];
-        if (i < vec.size() - 1) {
-            cout << ", ";
-        }
-    }
-    cout << "]";
-}
 
 int main() {
     Solution solution;
     
-    // 测试用例1
-    vector<int> nums1 = {2, 7, 11, 15};
-    int target1 = 9;
-    vector<int> result1 = solution.twoSum(nums1, target1);
-    
-    cout << "测试用例1:" << endl;
-    cout << "数组: ";
-    printVector(nums1);
-    cout << ", 目标值: " << target1 << endl;
+    // 测试用例1: ["eat","tea","tan","ate","nat","bat"]
+    vector<string> strs1 = {"eat","tea","tan","ate","nat","bat"};
+    vector<vector<string>> result1 = solution.groupAnagrams(strs1);
+    cout << "测试用例1: [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]" << endl;
     cout << "结果: ";
-    printVector(result1);
+    for (const auto& group : result1) {
+        cout << "[";
+        for (size_t i = 0; i < group.size(); ++i) {
+            cout << "\"" << group[i] << "\"";
+            if (i < group.size() - 1) cout << ",";
+        }
+        cout << "] ";
+    }
     cout << endl << endl;
     
-    // 测试用例2
-    vector<int> nums2 = {3, 2, 4};
-    int target2 = 6;
-    vector<int> result2 = solution.twoSum(nums2, target2);
-    
-    cout << "测试用例2:" << endl;
-    cout << "数组: ";
-    printVector(nums2);
-    cout << ", 目标值: " << target2 << endl;
+    // 测试用例2: [""]
+    vector<string> strs2 = {""};
+    vector<vector<string>> result2 = solution.groupAnagrams(strs2);
+    cout << "测试用例2: [\"\"]" << endl;
     cout << "结果: ";
-    printVector(result2);
+    for (const auto& group : result2) {
+        cout << "[";
+        for (size_t i = 0; i < group.size(); ++i) {
+            cout << "\"" << group[i] << "\"";
+            if (i < group.size() - 1) cout << ",";
+        }
+        cout << "] ";
+    }
     cout << endl << endl;
     
-    // 测试用例3
-    vector<int> nums3 = {3, 3};
-    int target3 = 6;
-    vector<int> result3 = solution.twoSum(nums3, target3);
-    
-    cout << "测试用例3:" << endl;
-    cout << "数组: ";
-    printVector(nums3);
-    cout << ", 目标值: " << target3 << endl;
+    // 测试用例3: ["a"]
+    vector<string> strs3 = {"a"};
+    vector<vector<string>> result3 = solution.groupAnagrams(strs3);
+    cout << "测试用例3: [\"a\"]" << endl;
     cout << "结果: ";
-    printVector(result3);
-    cout << endl << endl;
-    
-    // 测试用例4（无解的情况）
-    vector<int> nums4 = {1, 2, 3, 4};
-    int target4 = 10;
-    vector<int> result4 = solution.twoSum(nums4, target4);
-    
-    cout << "测试用例4（无解）:" << endl;
-    cout << "数组: ";
-    printVector(nums4);
-    cout << ", 目标值: " << target4 << endl;
-    cout << "结果: ";
-    printVector(result4);
-    if (result4.empty()) {
-        cout << " (无解)";
+    for (const auto& group : result3) {
+        cout << "[";
+        for (size_t i = 0; i < group.size(); ++i) {
+            cout << "\"" << group[i] << "\"";
+            if (i < group.size() - 1) cout << ",";
+        }
+        cout << "] ";
     }
     cout << endl;
     
