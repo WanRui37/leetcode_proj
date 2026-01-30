@@ -33,37 +33,23 @@ void printVector(const vector<int>& vec) {
 int main() {
     Solution solution;
     
-    // 测试用例数组
-    vector<vector<int>> testCases = {
-        {100, 4, 200, 1, 3, 2},      // 期望结果: 4 (1,2,3,4)
-        {0, 3, 7, 2, 5, 8, 4, 6, 0, 1}, // 期望结果: 9 (0,1,2,3,4,5,6,7,8)
-        {1, 0, 1, 2},                 // 期望结果: 3 (0,1,2)
-        {},                           // 空数组
-        {1},                          // 单个元素
-        {1, 3, 5},                    // 没有连续序列
-        {1, 2, 0, 1}                  // 有重复元素
-    };
+    // 测试用例1
+    vector<int> nums1 = {0, 1, 0, 3, 12};
+    cout << "原始数组: ";
+    printVector(nums1);
+    solution.moveZeroes(nums1);
+    cout << " -> 移动零后: ";
+    printVector(nums1);
+    cout << endl;
     
-    vector<int> expected = {4, 9, 3, 0, 1, 1, 3};
-    
-    cout << "测试最长连续序列算法:" << endl;
-    cout << "====================" << endl;
-    
-    for (int i = 0; i < testCases.size(); ++i) {
-        int result = solution.longestConsecutive(testCases[i]);
-        
-        cout << "测试用例 " << i + 1 << ": ";
-        printVector(testCases[i]);
-        cout << endl;
-        cout << "期望结果: " << expected[i] << ", 实际结果: " << result;
-        
-        if (result == expected[i]) {
-            cout << " ✓ 通过" << endl;
-        } else {
-            cout << " ✗ 失败" << endl;
-        }
-        cout << endl;
-    }
-    
+    // 测试用例2
+    vector<int> nums2 = {0};
+    cout << "原始数组: ";
+    printVector(nums2);
+    solution.moveZeroes(nums2);
+    cout << " -> 移动零后: ";
+    printVector(nums2);
+    cout << endl;
+
     return 0;
 }
