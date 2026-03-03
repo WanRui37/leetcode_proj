@@ -1,4 +1,10 @@
 # leetcode 题目
+
+## 参考网站
+1. [B站 LeetCode 最热门 100 题](https://www.bilibili.com/video/BV1Pq4y1j78o/?spm_id_from=333.337.search-card.all.click&vd_source=1cee4d194a814381bc4f8dbdefe72b56)
+
+1. [LeetCode 热题100](https://leetcode.cn/studyplan/top-100-liked/)
+
 ## 热题100
 
 本项目是为面试中的leetcode热题100题目而设计的。添加了头文件和具体的实现代码。因为实际的面试中，需要完整的代码运行，而不是中间的函数。

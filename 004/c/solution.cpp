@@ -33,23 +33,9 @@ void printVector(const vector<int>& vec) {
 int main() {
     Solution solution;
     
-    // 测试用例1
-    vector<int> nums1 = {0, 1, 0, 3, 12};
-    cout << "原始数组: ";
-    printVector(nums1);
-    solution.moveZeroes(nums1);
-    cout << " -> 移动零后: ";
-    printVector(nums1);
-    cout << endl;
+    [1,8,6,2,5,4,8,3,7]
+    [1,1]
     
-    // 测试用例2
-    vector<int> nums2 = {0};
-    cout << "原始数组: ";
-    printVector(nums2);
-    solution.moveZeroes(nums2);
-    cout << " -> 移动零后: ";
-    printVector(nums2);
-    cout << endl;
 
     return 0;
 }
